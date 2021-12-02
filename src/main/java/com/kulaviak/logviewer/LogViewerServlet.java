@@ -27,7 +27,7 @@ public class LogViewerServlet extends HttpServlet {
             }
 
             var pathInfo = request.getPathInfo();
-            if (pathInfo.equals("/")) {
+            if (pathInfo == null || pathInfo.equals("/")) {
                 new ListDirectoryService().listDirectory(response, directoryPath);
             } else {
                 new ShowFileService().showFile(response, directoryPath, pathInfo);
